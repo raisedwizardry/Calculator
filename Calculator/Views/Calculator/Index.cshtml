@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+<h2>calculator</h2>
+<div class="calc-container">
+    @if (@Model.frozen == true)
+    {
+        <input id="message" type="text" value="Calculator Frozen. Press clear." disabled="disabled">
+    }
+    <div class="calc">
+        @using (Html.BeginForm("Index", "Calculator", FormMethod.Post))
+        {
+            <input id="display" type="text" value="@Model.Display" disabled="disabled">
+            <input type="submit" id="clear" name="param" value="C" />
+            <div class="keypad @Model.disabled">
+                <input type="submit" name="param" value="7" />
+                <input type="submit" name="param" value="8" />
+                <input type="submit" name="param" value="9" />
+                <input type="submit" name="operate" value="/" />
+                <input type="submit" name="operate" value="sqrt" />
+                <input type="submit" name="param" value="4" />
+                <input type="submit" name="param" value="5" />
+                <input type="submit" name="param" value="6" />
+                <input type="submit" name="operate" value="*" />
+                <input type="submit" name="operate" value="%" />
+                <input type="submit" name="param" value="1" />
+                <input type="submit" name="param" value="2" />
+                <input type="submit" name="param" value="3" />
+                <input type="submit" name="operate" value="-" />
+                <input type="submit" id="equal" name="operate" value="=" />
+                <input type="submit" name="param" value="0" />
+                <input type="submit" name="param" value="." />
+                <input type="submit" name="param" value="+/-" />
+                <input type="submit" name="operate" value="+" />
+            </div>
+        }
+    </div>
+</div>
